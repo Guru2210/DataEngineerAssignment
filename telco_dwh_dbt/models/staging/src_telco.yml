@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: telco_source  # <--- This MUST match the first part of your {{ source() }}
+    database: telco_db
+    schema: raw_staging
+    tables:
+      - name: stg_billing_invoices  # <--- This MUST match the second part
+      - name: stg_customers
+      - name: stg_service_plans
+      - name: stg_subscriptions
+      - name: stg_network_usage

@@ -1,0 +1,11 @@
+# --- Data Generation (generate_telco_data.py) ---
+pandas>=2.0.0
+numpy>=1.24.0
+faker>=20.0.0
+
+# --- ETL / Airflow DAG (telco_etl_dag.py) ---
+apache-airflow>=2.8.0
+apache-airflow-providers-postgres>=5.0.0
+apache-airflow-providers-standard>=0.0.1
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0

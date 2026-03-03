@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "SCD Type 1, 2, and 3 customer dimension."
+    columns:
+      - name: customer_sk
+        description: "Primary surrogate key."
+        tests:
+          - unique           # Test 1
+          - not_null         # Test 2
+      - name: previous_service_plan
+        description: "SCD Type 3 tracking of the immediate prior plan."
+
+  - name: dim_service_plan
+    columns:
+      - name: plan_id
+        tests:
+          - unique           # Test 3
+          - not_null         # Test 4
+
+  - name: fact_billing_events
+    columns:
+      - name: customer_sk
+        tests:
+          - relationships:   # Test 5 (Referential Integrity)
+              field: customer_sk
+              to: ref('dim_customer')
+      - name: amount_due
+        tests:
+          - assert_positive_value  # Test 6 (Custom Macro)
+
+  - name: fact_service_usage
+    columns:
+      - name: customer_sk
+        tests:
+          - relationships:   # Test 7
+              field: customer_sk
+              to: ref('dim_customer')
+
+  - name: dim_date
+    columns:
+      - name: full_date
+        tests:
+          - assert_date_in_range:  # Test 8 (Custom Macro)
+              min_date: '2020-01-01'
+              max_date: '2030-12-31'
