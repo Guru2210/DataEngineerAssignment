@@ -1,6 +1,5 @@
-# Senior Data Engineer Challenge: Telco Customer Analytics
+# Telco Customer Analytics
 
-> **Veracity Digital** — End-to-end modernized data warehouse for a telecommunications partner.
 
 ---
 
