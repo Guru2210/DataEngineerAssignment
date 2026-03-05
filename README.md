@@ -22,6 +22,8 @@ DataEngineerAssignment/
 ├── telco_etl_dag.py             # Airflow ELT DAG
 ├── telco_etl_dag_advanced.py    # Advanced Airflow DAG variant
 ├── requirements.txt             # Python dependencies
+|__init.sql                      # SQL Initilization
+|__docker-compose.yml            # Postgres Docker setup
 ├── telco_dwh_dbt/               # dbt project (transformations & tests)
 │   ├── models/                  # Staging, intermediate & mart models
 │   ├── macros/                  # Reusable Jinja macros
@@ -29,6 +31,7 @@ DataEngineerAssignment/
 │   ├── packages.yml             # dbt package dependencies
 │   └── dbt_project.yml          # dbt project configuration
 └── README.md
+
 ```
 
 ---
